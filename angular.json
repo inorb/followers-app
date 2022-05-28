@@ -60,6 +60,14 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "test": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.test.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -72,6 +80,9 @@
             },
             "development": {
               "browserTarget": "deploy-demo:build:development"
+            },
+            "test": {
+              "browserTarget": "deploy-demo:build:test"
             }
           },
           "defaultConfiguration": "development"
@@ -98,9 +109,21 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "deploy-demo"
+  "defaultProject": "deploy-demo",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
